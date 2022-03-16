@@ -4,7 +4,7 @@ const cors = require("cors");
 
 app.use(cors());
 
-app.use("/login", (req, res) => {
+app.use("/", (req, res) => {
   res.send({
     token: "todo123",
   });
