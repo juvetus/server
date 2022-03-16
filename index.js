@@ -7,15 +7,18 @@ dotenv.config();
 app.use(cors());
 port = process.env.PORT;
 token = process.env.TOKEN;
-
-app.use("/login", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   res.send({
-    //token: process.env.TOKEN,
-    //token: "1235-12358",
     token,
   });
+  next();
 });
+
 console.log(`Your token is ${token}`);
 app.listen(process.env.PORT, () =>
   console.log("API IS RUNNING ON PORT, port ", port)
