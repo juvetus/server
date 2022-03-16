@@ -9,6 +9,7 @@ port = process.env.PORT;
 token = process.env.TOKEN;
 
 app.use("/login", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.send({
     //token: process.env.TOKEN,
     //token: "1235-12358",
