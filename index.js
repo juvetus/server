@@ -1,13 +1,21 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
 
 app.use(cors());
+port = process.env.PORT;
+token = process.env.TOKEN;
 
-app.use("/", (req, res) => {
+app.use("/login", (req, res) => {
   res.send({
-    token: "todo123",
+    //token: process.env.TOKEN,
+    //token: "1235-12358",
+    token,
   });
 });
-
-app.listen(8000, () => console.log("API IS RUNNING ON PORT 8000"));
+console.log(`Your token is ${token}`);
+app.listen(process.env.PORT, () =>
+  console.log("API IS RUNNING ON PORT, port ", port)
+);
