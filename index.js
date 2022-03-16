@@ -19,6 +19,13 @@ app.use(function (req, res, next) {
   next();
 });
 
+// app.use("/login", (req, res) => {
+//   res.send({
+//     //token: process.env.TOKEN,
+//     //token: "1235-12358",
+//     token,
+//   });
+// });
 console.log(`Your token is ${token}`);
 app.listen(process.env.PORT, () =>
   console.log("API IS RUNNING ON PORT, port ", port)
